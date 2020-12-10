@@ -13,3 +13,6 @@ artisan:
 
 composer:
 	$(PHP) composer $(CMD)
+
+test:
+	$(PHP) vendor/phpunit/phpunit/phpunit tests/
