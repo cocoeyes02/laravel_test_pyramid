@@ -97,6 +97,7 @@ class UITest extends TestCase
         $this->driver->wait()->until(WebDriverExpectedCondition::visibilityOf($taskNameElement));
         $taskText = "coding script.";
         $taskNameElement->sendKeys($taskText);
+        sleep(1);
 
         $addSubmitElement = $this->driver->findElement(WebDriverBy::id("addSubmit"));
         $addSubmitElement->click();
