@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskStoreRequest;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -48,15 +49,11 @@ class TaskController extends Controller
     /**
      * Create a new task.
      *
-     * @param  Request  $request
+     * @param  TaskStoreRequest  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(TaskStoreRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-        ]);
-
         $request->user()->tasks()->create([
             'name' => $request->name,
         ]);
